@@ -1,0 +1,33 @@
+<div class="author">
+    <h1 class="author__heading">Trending blogs</h1>
+    <p class="author__body"></p>
+</div>
+
+
+<section class="articles">
+    <h2 class="articles__heading"></h2>
+
+    <ul class="article-ul">
+        <% data.forEach(text=> {%>
+            
+        
+            <li>
+                <a href="/post/<%= text._id %>">
+                    <span>
+                        <%= text.title %>
+                    </span>
+                    <span class="article-list__date">
+                        <%= text.createdAt.toDateString() %>
+                    </span>
+                </a>
+            </li>
+        <%}); %>
+
+    </ul>
+    <% if (nextPage !== null) { %>
+        <a href="/?page=<%= nextPage %>" class="pagination">&lt; View Older Posts</a>
+    <% } %>
+
+
+
+</section>
